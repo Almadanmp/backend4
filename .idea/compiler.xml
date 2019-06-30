@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="backend4" />
         <module name="smarthome" />
         <module name="Sprint 0" />
         <module name="Switch2018-19" />
@@ -23,6 +24,7 @@
       <module name="Sprint 0" options="-Werror -Xlint:all" />
       <module name="Switch2018-19" options="-Werror -Xlint:all" />
       <module name="Switch_Project" options="-Werror -Xlint:all" />
+      <module name="backend4" options="-Werror -Xlint:all" />
       <module name="project_g2" options="-Werror -Xlint:all" />
       <module name="project_g22" options="-Werror -Xlint:all" />
       <module name="project_g2_updated" options="-Werror -Xlint:all" />

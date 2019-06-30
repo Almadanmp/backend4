@@ -72,106 +72,106 @@ public class ProgramConfiguration implements CommandLineRunner {
 
 
         House house = mainHouse(houseCrudRepo, gridMeteringPeriod, deviceMeteringPeriod, deviceTypeConfig);
-
+        dataImporter.importData(house);
         //LOAD PERSISTED GA DATA
 
         //MAIN CODE
-        Scanner enterToReturnToConsole = new Scanner(System.in);
-        int option;
-        while (true) {
-            System.out.println(
-                    "                      ______          ___ _    _____ _    _ \n" +
-                            "                    / ____\\ \\        / (_) |  / ____| |  | |\n" +
-                            "                   | (___  \\ \\  /\\  / / _| |_| |    | |__| |\n" +
-                            "                    \\___ \\  \\ \\/  \\/ / | | __| |    |  __  |\n" +
-                            "                    ____) |  \\  /\\  /  | | |_| |____| |  | |\n" +
-                            "                   |_____/    \\/  \\/   |_|\\__|\\_____|_|  |_|    2018/19\n" +
-                            "                          \n                                Smart Grid Menu \n"
-            );
+//        Scanner enterToReturnToConsole = new Scanner(System.in);
+//        int option;
+//        while (true) {
+//            System.out.println(
+//                    "                      ______          ___ _    _____ _    _ \n" +
+//                            "                    / ____\\ \\        / (_) |  / ____| |  | |\n" +
+//                            "                   | (___  \\ \\  /\\  / / _| |_| |    | |__| |\n" +
+//                            "                    \\___ \\  \\ \\/  \\/ / | | __| |    |  __  |\n" +
+//                            "                    ____) |  \\  /\\  /  | | |_| |____| |  | |\n" +
+//                            "                   |_____/    \\/  \\/   |_|\\__|\\_____|_|  |_|    2018/19\n" +
+//                            "                          \n                                Smart Grid Menu \n"
+//            );
+//
+//            // Submenus Input selection
+//
+//            List<String> mainMenuOptions = new ArrayList<>();
+//            mainMenuOptions.add("Geographic Area Settings");
+//            mainMenuOptions.add("House Settings.");
+//            mainMenuOptions.add("Room Settings.");
+//            mainMenuOptions.add("Sensor Settings.");
+//            mainMenuOptions.add("Energy Grid Settings.");
+//            mainMenuOptions.add("Room Monitoring.");
+//            mainMenuOptions.add("House Monitoring.");
+//            mainMenuOptions.add("Energy Consumption Management.");
+//            mainMenuOptions.add("Re-import all data.");
+//            mainMenuOptions.add("Exit Application");
+//
+//            MenuFormatter.showMenu("Main Menu ", mainMenuOptions);
+//
 
-            // Submenus Input selection
-
-            List<String> mainMenuOptions = new ArrayList<>();
-            mainMenuOptions.add("Geographic Area Settings");
-            mainMenuOptions.add("House Settings.");
-            mainMenuOptions.add("Room Settings.");
-            mainMenuOptions.add("Sensor Settings.");
-            mainMenuOptions.add("Energy Grid Settings.");
-            mainMenuOptions.add("Room Monitoring.");
-            mainMenuOptions.add("House Monitoring.");
-            mainMenuOptions.add("Energy Consumption Management.");
-            mainMenuOptions.add("Re-import all data.");
-            mainMenuOptions.add("Exit Application");
-
-            MenuFormatter.showMenu("Main Menu ", mainMenuOptions);
-
-
-            boolean activeInput = true;
-
-            while (activeInput) {
-                option = InputHelperUI.getInputAsInt();
-                switch (option) {
-                    case 1:
-                        gaSettingsUI.runGASettings();
-                        returnToMenu(enterToReturnToConsole);
-                        activeInput = false;
-                        break;
-                    case 2:
-                        houseConfigurationUI.run(house);
-                        returnToMenu(enterToReturnToConsole);
-                        activeInput = false;
-                        break;
-                    case 3:
-                        roomConfigurationUI.run(house);
-                        returnToMenu(enterToReturnToConsole);
-                        activeInput = false;
-                        break;
-                    case 4:
-                        sensorSettingsUI.run();
-                        returnToMenu(enterToReturnToConsole);
-                        activeInput = false;
-                        break;
-                    case 5:
-                        energyGridSettingsUI.run(house);
-                        returnToMenu(enterToReturnToConsole);
-                        activeInput = false;
-                        break;
-                    case 6:
-                        roomMonitoringUI.run(house);
-                        returnToMenu(enterToReturnToConsole);
-                        activeInput = false;
-                        break;
-                    case 7:
-                        houseMonitoringUI.run(house);
-                        returnToMenu(enterToReturnToConsole);
-                        activeInput = false;
-                        break;
-                    case 8:
-                        energyConsumptionUI.run();
-                        returnToMenu(enterToReturnToConsole);
-                        activeInput = false;
-                        break;
-                    case 9:
-                        dataImporter.importData(house);
-                        returnToMenu(enterToReturnToConsole);
-                        activeInput = false;
-                        break;
-                    case 0:
-                        System.exit(0);
-                        return;
-                    default:
-                        System.out.println(UtilsUI.INVALID_OPTION);
-                        break;
-                }
-            }
-        }
+//            boolean activeInput = true;
+//
+//            while (activeInput) {
+//                option = InputHelperUI.getInputAsInt();
+//                switch (option) {
+//                    case 1:
+//                        gaSettingsUI.runGASettings();
+//                        returnToMenu(enterToReturnToConsole);
+//                        activeInput = false;
+//                        break;
+//                    case 2:
+//                        houseConfigurationUI.run(house);
+//                        returnToMenu(enterToReturnToConsole);
+//                        activeInput = false;
+//                        break;
+//                    case 3:
+//                        roomConfigurationUI.run(house);
+//                        returnToMenu(enterToReturnToConsole);
+//                        activeInput = false;
+//                        break;
+//                    case 4:
+//                        sensorSettingsUI.run();
+//                        returnToMenu(enterToReturnToConsole);
+//                        activeInput = false;
+//                        break;
+//                    case 5:
+//                        energyGridSettingsUI.run(house);
+//                        returnToMenu(enterToReturnToConsole);
+//                        activeInput = false;
+//                        break;
+//                    case 6:
+//                        roomMonitoringUI.run(house);
+//                        returnToMenu(enterToReturnToConsole);
+//                        activeInput = false;
+//                        break;
+//                    case 7:
+//                        houseMonitoringUI.run(house);
+//                        returnToMenu(enterToReturnToConsole);
+//                        activeInput = false;
+//                        break;
+//                    case 8:
+//                        energyConsumptionUI.run();
+//                        returnToMenu(enterToReturnToConsole);
+//                        activeInput = false;
+//                        break;
+//                    case 9:
+//                        dataImporter.importData(house);
+//                        returnToMenu(enterToReturnToConsole);
+//                        activeInput = false;
+//                        break;
+//                    case 0:
+//                        System.exit(0);
+//                        return;
+//                    default:
+//                        System.out.println(UtilsUI.INVALID_OPTION);
+//                        break;
+//                }
+//            }
     }
+//    }
 
-    private static void returnToMenu(Scanner scanner) {
-        String pressEnter = "\nPress ENTER to return.";
-        System.out.println(pressEnter);
-        scanner.nextLine();
-    }
+//    private static void returnToMenu(Scanner scanner) {
+//        String pressEnter = "\nPress ENTER to return.";
+//        System.out.println(pressEnter);
+//        scanner.nextLine();
+//    }
 
     private static House mainHouse(HouseCrudRepo houseCrudRepo, int gridMeteringPeriod, int deviceMeteringPeriod, List<String> deviceTypeConfig) {
         House house;
